@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4qq850raq52l"]
+
+[ext_resource type="Script" path="res://UI/Scripts/title.gd" id="1_g0ibf"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_g0ibf")
+
+[node name="Start" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Credits" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Quit" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
