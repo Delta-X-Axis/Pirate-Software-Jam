@@ -22,16 +22,16 @@ func _ready():
 	nameLabel.text = "Developers: "
 	
 	name1 = get_node("Name1")
-	name1.text = "- Daran Parkman (Darredevyll)"
+	name1.text = "- RetroTen (James): Project Manager"
 	
 	name2 = get_node("Name2")
-	name2.text = ""
+	name2.text = "- MasterEw0k (Seth): Aesthetics Lead"
 	
 	name3 = get_node("Name3")
-	name3.text = ""
+	name3.text = "- Darredevyll (Daran): Technical Lead"
 	
 	name4 = get_node("Name4")
-	name4.text = ""
+	name4.text = "- Artuarus (Caleb): Passenger Princess"
 	
 	name5 = get_node("Name5")
 	name5.text = ""

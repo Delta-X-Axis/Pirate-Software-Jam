@@ -2,6 +2,14 @@
 ## Project README ##
 ####################
 
+Project Roles:
+- Lead Designer - TBD
+- Project Manager - James
+- Technical & Systems Director - Daran
+- Aesthetics Director - Seth
+- Passenger Princess - Caleb
+
+
 This is the Game Project for the Pirate Software Game Jam January 2025
 
 In general, different aspects of the game will have dedicated folders
