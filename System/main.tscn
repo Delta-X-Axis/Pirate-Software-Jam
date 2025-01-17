@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bi6kh0ckn86qo"]
 
 [ext_resource type="Script" path="res://System/main.gd" id="1_72bug"]
-[ext_resource type="PackedScene" path="res://UI/Scenes/title.tscn" id="2_gir7t"]
-[ext_resource type="PackedScene" path="res://UI/Scenes/Credits.tscn" id="3_hdlqr"]
+[ext_resource type="PackedScene" uid="uid://c4qq850raq52l" path="res://UI/Scenes/title.tscn" id="2_gir7t"]
+[ext_resource type="PackedScene" uid="uid://bsjxe558s3prf" path="res://UI/Scenes/Credits.tscn" id="3_hdlqr"]
 [ext_resource type="PackedScene" uid="uid://dxycunlhptqug" path="res://System/game.tscn" id="4_hsnbd"]
 
 [node name="Main" type="Node2D"]
