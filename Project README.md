@@ -27,3 +27,7 @@ This definitely wasn't just so the folders would show up on the repo
 
 If you don't know how something works or where something should go,
 feel free to ping me (@Darredevyll (Daran)) or post in the group chat
+
+
+Signatures:
+	- Darredevyll
