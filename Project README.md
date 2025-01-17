@@ -3,7 +3,7 @@
 ####################
 
 Project Roles:
-- Lead Designer - TBD
+- Lead Designer - James
 - Project Manager - James
 - Technical & Systems Director - Daran
 - Aesthetics Director - Seth
