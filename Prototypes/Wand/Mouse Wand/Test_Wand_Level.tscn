@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://s0hfc45o4iu0"]
 
-[ext_resource type="PackedScene" uid="uid://cxt3rby3ilxoi" path="res://Prototypes/Wand/Test_Wand.tscn" id="1_eem3t"]
-[ext_resource type="Script" path="res://Prototypes/Wand/Test_Wand_Level.gd" id="1_r4jfm"]
+[ext_resource type="PackedScene" uid="uid://cxt3rby3ilxoi" path="res://Prototypes/Wand/Mouse Wand/Test_Wand.tscn" id="1_eem3t"]
+[ext_resource type="Script" path="res://Prototypes/Wand/Mouse Wand/Test_Wand_Level.gd" id="1_r4jfm"]
 
 [node name="TestWandLevel" type="Node2D"]
 script = ExtResource("1_r4jfm")

@@ -47,9 +47,6 @@ func deloadCredits():
 	
 	
 func startRun():
-	#Hit.time = 0
-	#Hit.score = 0
-	
 	## Instantiate a run
 	game = gameScene.instantiate()
 	add_child(game)
