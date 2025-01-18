@@ -2,8 +2,8 @@ class_name Wand_Mouse
 extends CharacterBody2D
 
 
-@export var MaxSpeed = 150
-@export var MousePull = 200
+@export var MaxSpeed = 300
+@export var MousePull = 500
 
 
 # Called when the node enters the scene tree for the first time.
@@ -37,7 +37,7 @@ func turnVelocity(time):
 	if (abs(rotationSpeed) >= abs(AngleBetween)):
 		rotationSpeed = AngleBetween
 	
-	velocity = velocity.rotated(AngleBetween * rotationSpeed)
+	velocity = velocity.rotated(AngleBetween)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

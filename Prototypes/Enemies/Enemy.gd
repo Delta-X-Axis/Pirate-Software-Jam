@@ -1,20 +1,21 @@
+class_name Enemy
 extends CharacterBody2D
 
 
 ###########################
-## STATE MACHINE FOR Enemy
+## STATE MACHINE FOR WIZARD
 ## 0 - Idle
 ## 1 - Wandering
 ## 2 - Attracted
-## 3 - Frightened
-## 4 - Interacting
+## 3 - Attacking
 var state = 0
 
 var stateTimer
 var transitionTime = 3.0
 
-var movement = 55
+var movement = 50
 var target
+var playerTarget
 
 var detectArea
 
@@ -30,87 +31,51 @@ func _ready():
 
 
 func setIdle():
+	if state == 2:
+		playerTarget = null
+	velocity = Vector2.ZERO
+	target = null
+	
 	state = 0
 	
 	for dict in stateTimer.callback.get_connections():
 		stateTimer.callback.disconnect(dict.callable)
 	stateTimer.callback.connect(setWander)
 	
-	velocity = Vector2.ZERO
-	target = null
 	stateTimer.wait_time = transitionTime
 	stateTimer.reset()
 	stateTimer.start()
-	return
+
 
 func setWander():
 	state = 1
 	var wanderDirection = randf_range(-PI, PI)
-	var wanderDistance = randi_range(50, 300)
+	var wanderDistance = randi_range(10, 50)
 	
 	target = position + (Vector2.from_angle(wanderDirection) * wanderDistance)
 
-func setFrightened(pos):
-	if state == 4:
-		return
-		
-	state = 3
+
+func setAttracted(ref):
+	state = 2
 	
-	var runDirection = position.direction_to(pos).rotated(PI)
-	var offset = randf_range(-0.5, 0.5)
-	runDirection = runDirection.rotated(offset)
+	playerTarget = ref
 	
-	target = position + runDirection*1000
-	
-	var runTime = randf_range(2.0, 4.0)
+	var runTime = randf_range(0.5, 1.5)
 	for dict in stateTimer.callback.get_connections():
 		stateTimer.callback.disconnect(dict.callable)
 	stateTimer.callback.connect(setIdle)
 	stateTimer.wait_time = runTime
 	stateTimer.reset()
-	stateTimer.start()
-
-
-func setAttracted(pos):
-	if state == 3:
-		return
-		
-	state = 2
-	target = pos
-
-
-func interact():
-	if state == 3:
-		return
-		
-	state == 4
-	velocity = Vector2.ZERO
-	
-	var interactTime = 2.0
-	for dict in stateTimer.callback.get_connections():
-		stateTimer.callback.disconnect(dict.callable)
-	stateTimer.callback.connect(setIdle)
-	stateTimer.wait_time = interactTime
-	stateTimer.reset()
-	stateTimer.start()
 
 
 func move():
 	velocity = position.direction_to(target) * movement
-	if state == 3:
-		velocity *= 1.5
 	detectArea.rotation = velocity.angle()
 	
 	move_and_slide()
 	
 	if (position.distance_to(target) <= 10):
-		match state:
-			1:
-				setIdle()
-			2:
-				interact()
-			3:
-				setIdle()
+		setIdle()
 
 
 func _process(_delta):
@@ -118,15 +83,15 @@ func _process(_delta):
 		1:
 			move()
 		2:
+			target=playerTarget.position
 			move()
-		3:
-			move()
+
 
 
 func _on_body_entered(body):
-	if (body.is_in_group("Enemy")):
-		setFrightened(body.position)
-		return
-	if (body.is_in_group("Treasure")):
-		setAttracted(body.position)
-		return
+	if (body.is_in_group("Wizard")):
+		setAttracted(body)
+
+func _on_body_exited(body):
+	if (body.is_in_group("Wizard")):
+		stateTimer.start()
