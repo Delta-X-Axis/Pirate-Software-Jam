@@ -1,5 +1,5 @@
-extends "res://Prototypes/Spells/Spell.gd"
-class_name conjuration
+extends Spell
+class_name Conjuration
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,4 +12,4 @@ func _process(delta):
 
 
 func cast():
-	target = get
+	target = get_global_mouse_position()
