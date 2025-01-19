@@ -17,6 +17,7 @@ var movement = 55
 var target
 
 var detectArea
+var treasure
 
 
 func _ready():
@@ -70,7 +71,6 @@ func setFrightened(pos):
 	stateTimer.reset()
 	stateTimer.start()
 
-
 func setAttracted(pos):
 	if state == 3:
 		return
@@ -80,22 +80,31 @@ func setAttracted(pos):
 
 
 func interact():
-	if state == 3:
+	if state == 3 || treasure == null:
 		return
 		
-	state == 4
+	state = treasure._interact()
 	velocity = Vector2.ZERO
-	
 	var interactTime = 2.0
 	for dict in stateTimer.callback.get_connections():
 		stateTimer.callback.disconnect(dict.callable)
-	stateTimer.callback.connect(setIdle)
-	stateTimer.wait_time = interactTime
-	stateTimer.reset()
-	stateTimer.start()
-
+	
+	if state == 0:
+		treasure.queue_free()
+		stateTimer.callback.connect(setWander)
+		return
+	
+	if state == 4:
+		stateTimer.callback.connect(setIdle)
+		stateTimer.callback.connect(treasure.queue_free)
+		stateTimer.wait_time = interactTime
+		stateTimer.reset()
+		stateTimer.start()
 
 func move():
+	if state == 4:
+		return
+	
 	velocity = position.direction_to(target) * movement
 	if state == 3:
 		velocity *= 1.5
@@ -103,12 +112,13 @@ func move():
 	
 	move_and_slide()
 	
-	if (position.distance_to(target) <= 10):
+	if (position.distance_to(target) <= 20):
 		match state:
 			1:
 				setIdle()
 			2:
-				interact()
+				if treasure != null:
+					interact()
 			3:
 				setIdle()
 
@@ -128,5 +138,8 @@ func _on_body_entered(body):
 		setFrightened(body.position)
 		return
 	if (body.is_in_group("Treasure")):
+		if state == 3:
+			return
+		treasure = body
 		setAttracted(body.position)
 		return
