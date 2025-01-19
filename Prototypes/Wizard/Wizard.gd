@@ -19,6 +19,9 @@ var target
 var detectArea
 var treasure
 
+var spell : Spell
+
+
 
 func _ready():
 	detectArea = get_node("Area2D")
@@ -28,6 +31,10 @@ func _ready():
 	stateTimer.callback.connect(setWander)
 	add_child(stateTimer)
 	stateTimer.start()
+	
+	spell = Illusory_Treasure.new()
+	add_child(spell)
+	
 
 
 func setIdle():
@@ -100,6 +107,9 @@ func interact():
 		stateTimer.wait_time = interactTime
 		stateTimer.reset()
 		stateTimer.start()
+		
+	if Input.is_action_just_pressed("Click"):
+		spell.cast()
 
 func move():
 	if state == 4:
@@ -122,7 +132,6 @@ func move():
 			3:
 				setIdle()
 
-
 func _process(_delta):
 	match state:
 		1:
@@ -131,7 +140,8 @@ func _process(_delta):
 			move()
 		3:
 			move()
-
+			
+	interact()
 
 func _on_body_entered(body):
 	if (body.is_in_group("Enemy")):

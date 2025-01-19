@@ -1,7 +1,9 @@
-extends Node
+extends Node2D
+class_name Spell
 
 @export var cooldown = 0
 @export var duration = 0
+var target
 
 var spell_name : String
 
@@ -16,4 +18,4 @@ func _process(delta):
 
 
 func cast():
-	pass
+	target = get_global_mouse_position()
