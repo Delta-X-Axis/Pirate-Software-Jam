@@ -6,20 +6,29 @@ var chest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	super._ready()
 	duration = 5
+	super._ready()
 	
-
+	
+func makeUsable():
+	usable = true
+	cooldownTimer.callback.disconnect(makeUsable)
+	cooldownTimer.wait_time = duration
+	
+func effect():
+	super.cast() #Sets the target variable to the global mouse position
+	chest = ChestScene.instantiate()
+	get_parent().get_parent().add_child(chest)
+	chest.global_position = target
+	cooldownTimer.callback.disconnect(effect)
+	cooldownTimer.wait_time = cooldown
+	cooldownTimer.callback.connect(makeUsable)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func cast():
-	super.cast() #Sets the target variable to the global mouse position
-	chest = ChestScene.instantiate()
-	##add_child(chest)
-	get_parent().add_child(chest)
-	chest.global_position = target
-	print(target)
-	
+	cooldownTimer.callback.connect(effect)
+	cooldownTimer.start()
+	usable = false

@@ -19,6 +19,7 @@ var target
 var detectArea
 var treasure
 
+var spells : Array
 var spell : Spell
 
 
@@ -34,6 +35,7 @@ func _ready():
 	
 	spell = Illusory_Treasure.new()
 	add_child(spell)
+	spells.append(spell)
 	
 
 
@@ -108,6 +110,8 @@ func interact():
 		stateTimer.reset()
 		stateTimer.start()
 		
+		
+func inputs():
 	if Input.is_action_just_pressed("Click"):
 		spell.cast()
 
@@ -141,7 +145,7 @@ func _process(_delta):
 		3:
 			move()
 			
-	interact()
+	inputs()
 
 func _on_body_entered(body):
 	if (body.is_in_group("Enemy")):
