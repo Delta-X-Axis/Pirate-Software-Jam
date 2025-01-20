@@ -6,8 +6,8 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_idses"]
 
 [node name="TestWand" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_g5l5i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

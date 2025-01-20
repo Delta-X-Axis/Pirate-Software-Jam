@@ -14,6 +14,7 @@ var spell_name : String
 func _ready():
 	cooldownTimer = timer.new()
 	cooldownTimer.wait_time = duration
+	add_child(cooldownTimer)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
