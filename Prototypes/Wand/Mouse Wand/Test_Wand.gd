@@ -2,7 +2,7 @@ class_name Wand_Mouse
 extends CharacterBody2D
 
 
-@export var MaxSpeed = 300
+@export var MaxSpeed = 200
 @export var MousePull = 500
 
 

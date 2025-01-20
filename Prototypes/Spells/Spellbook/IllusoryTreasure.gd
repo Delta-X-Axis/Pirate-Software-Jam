@@ -6,7 +6,8 @@ var chest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	duration = 5
+	duration = 0.5
+	cooldown = 2.0
 	super._ready()
 	
 	
@@ -23,12 +24,15 @@ func effect():
 	cooldownTimer.callback.disconnect(effect)
 	cooldownTimer.wait_time = cooldown
 	cooldownTimer.callback.connect(makeUsable)
+	cooldownTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func cast():
+	if (!usable):
+		return
 	cooldownTimer.callback.connect(effect)
 	cooldownTimer.start()
 	usable = false

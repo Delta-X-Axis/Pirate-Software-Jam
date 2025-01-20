@@ -32,3 +32,6 @@ position = Vector2(802, 492)
 
 [node name="TestWand" parent="." instance=ExtResource("7_blexo")]
 position = Vector2(665, 541)
+
+[node name="Camera2D" type="Camera2D" parent="TestWand"]
+zoom = Vector2(3, 3)

@@ -32,7 +32,4 @@ y_sort_enabled = true
 position = Vector2(38, 0)
 shape = SubResource("CapsuleShape2D_lpsm0")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
