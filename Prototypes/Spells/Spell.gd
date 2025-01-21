@@ -1,8 +1,8 @@
 extends Node2D
 class_name Spell
 
-@export var cooldown = 0
-@export var duration = 0
+var cooldown = 0
+var duration = 0
 var cooldownTimer
 var target
 
@@ -22,5 +22,18 @@ func _process(delta):
 	pass
 
 
+
 func cast():
+	pass
+	
+func makeUsable():
+	usable = true
+	cooldownTimer.callback.disconnect(makeUsable)
+	cooldownTimer.wait_time = duration
+	
+func effect():
 	target = get_global_mouse_position()
+	cooldownTimer.callback.disconnect(effect)
+	cooldownTimer.wait_time = cooldown
+	cooldownTimer.callback.connect(makeUsable)
+	cooldownTimer.start()
