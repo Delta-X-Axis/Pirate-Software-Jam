@@ -2,9 +2,9 @@ extends "res://Prototypes/Spells/Evocation.gd"
 class_name Magic_Missile
 
 @export var MissileScene : PackedScene = preload("res://Prototypes/Spells/Spellbook/MagicMissile/Magic_Missile.tscn")
-@export var speed = 20
+@export var speed = 500
 var missile
- 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	duration = 0.05
@@ -16,10 +16,7 @@ func _process(delta):
 	super._process(delta)
 	if missile == null:
 		return
-	missile.velocity = missile.position.direction_to(target) * speed
-	if position.distance_to(target) < 1:
-		missile.queue_free()
-	else: missile.move_and_slide()
+	missile.move_and_slide()
 
 func effect():
 	super.effect()
@@ -28,7 +25,15 @@ func effect():
 	print("GP: " , missile.global_position , " | " , "target:" , target)
 	missile.global_position = origin
 	
-
+	missile.velocity = missile.position.direction_to(target) * speed
+	
+	var rangeTimer = timer.new()
+	add_child(rangeTimer)
+	rangeTimer.wait_time = 1.0
+	rangeTimer.callback.connect(missile.queue_free)
+	rangeTimer.start()
+	
+	
 func cast():
 	if (!usable):
 		return
