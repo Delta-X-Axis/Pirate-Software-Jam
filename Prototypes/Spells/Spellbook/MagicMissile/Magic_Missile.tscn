@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5vnlfkdwf5b6"]
+[gd_scene load_steps=3 format=3 uid="uid://c5vnlfkdwf5b6"]
+
+[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="1_jc8l1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1fjn"]
 
-[node name="MagicMissile" type="Node2D"]
+[node name="MagicMissile" type="CharacterBody2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 0.745098)
+texture = ExtResource("1_jc8l1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-modulate = Color(0, 1, 1, 1)
-scale = Vector2(2, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(0, 1, 0, 1)
 shape = SubResource("CapsuleShape2D_v1fjn")

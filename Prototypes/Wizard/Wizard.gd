@@ -21,6 +21,7 @@ var treasure
 
 var spells : Array
 var spell : Spell
+var spell2 : Spell
 
 
 
@@ -33,9 +34,10 @@ func _ready():
 	add_child(stateTimer)
 	stateTimer.start()
 	
-	spell = Illusory_Treasure.new()
+	spell = Magic_Missile.new()
 	add_child(spell)
 	spells.append(spell)
+	
 	
 
 

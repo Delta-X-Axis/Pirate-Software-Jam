@@ -24,7 +24,7 @@ func _process(delta):
 
 
 func cast():
-	pass
+	target = get_global_mouse_position()
 	
 func makeUsable():
 	usable = true

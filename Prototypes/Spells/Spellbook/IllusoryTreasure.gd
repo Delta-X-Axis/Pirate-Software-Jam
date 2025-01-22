@@ -6,8 +6,8 @@ var chest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	duration = 0.5
-	cooldown = 2.0
+	duration = 0.05
+	cooldown = 0.5
 	super._ready()
 	
 func effect():	

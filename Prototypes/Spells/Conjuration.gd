@@ -12,4 +12,4 @@ func _process(delta):
 
 
 func cast():
-	target = get_global_mouse_position()
+	super.cast()
