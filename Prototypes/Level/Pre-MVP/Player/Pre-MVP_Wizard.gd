@@ -10,9 +10,9 @@ extends CharacterBody2D
 ## 4 - Interacting
 var state = 0
 
-var health = 20
+var health = 10
 var stateTimer
-var transitionTime = 3.0
+var transitionTime = 2.0
 
 var movement = 55
 var target
@@ -23,6 +23,8 @@ var treasure
 var spells : Array
 var spell : Spell
 
+
+signal death
 
 
 func _ready():
@@ -57,7 +59,7 @@ func setIdle():
 func setWander():
 	state = 1
 	var wanderDirection = randf_range(-PI, PI)
-	var wanderDistance = randi_range(50, 300)
+	var wanderDistance = randi_range(50, 150)
 	
 	target = position + (Vector2.from_angle(wanderDirection) * wanderDistance)
 
@@ -85,14 +87,23 @@ func setAttracted(pos):
 	if state == 3:
 		return
 		
+	stateTimer.reset()
 	state = 2
 	target = pos
 
+func hit(dmg, pos):
+	health -= dmg
+	print(health)
+	
+	if health <= dmg:
+		die()
+	
+	setFrightened(pos)
 
 func interact():
 	if state == 3 || treasure == null:
 		return
-		
+	
 	state = treasure._interact()
 	velocity = Vector2.ZERO
 	var interactTime = 2.0
@@ -101,7 +112,7 @@ func interact():
 	
 	if state == 0:
 		treasure.queue_free()
-		stateTimer.callback.connect(setWander)
+		setIdle()
 		return
 	
 	if state == 4:
@@ -134,8 +145,11 @@ func move():
 			2:
 				if treasure != null:
 					interact()
-			3:
-				setIdle()
+
+
+func die():
+	death.emit()
+
 
 func _process(_delta):
 	match state:
@@ -150,6 +164,8 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	if (body.is_in_group("Enemy")):
+		if state == 3:
+			return
 		setFrightened(body.position)
 		return
 	if (body.is_in_group("Treasure")):

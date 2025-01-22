@@ -1,4 +1,4 @@
-class_name PreEnemy
+class_name Enemy
 extends CharacterBody2D
 
 
@@ -10,6 +10,7 @@ extends CharacterBody2D
 ## 3 - Attacking
 var state = 0
 
+var damage = 1
 var stateTimer
 var transitionTime = 3.0
 
@@ -50,7 +51,7 @@ func setIdle():
 func setWander():
 	state = 1
 	var wanderDirection = randf_range(-PI, PI)
-	var wanderDistance = randi_range(10, 50)
+	var wanderDistance = randi_range(30, 70)
 	
 	target = position + (Vector2.from_angle(wanderDirection) * wanderDistance)
 
@@ -67,7 +68,12 @@ func setAttracted(ref):
 	stateTimer.wait_time = runTime
 	stateTimer.reset()
 
-
+func setAttack():
+	print("Attacking")
+	state = 3
+	playerTarget.hit(damage, position)
+	playerTarget = null
+	setIdle()
 
 func move():
 	velocity = position.direction_to(target) * movement
@@ -75,8 +81,11 @@ func move():
 	
 	move_and_slide()
 	
-	if (position.distance_to(target) <= 10):
-		setIdle()
+	if (position.distance_to(target) <= 20):
+		if state == 2:
+			setAttack()
+		else:
+			setIdle()
 
 
 func _process(_delta):

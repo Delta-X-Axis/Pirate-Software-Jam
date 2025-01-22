@@ -1,4 +1,5 @@
-extends "res://Prototypes/Spells/Spell.gd"
+class_name Evocation
+extends Spell
 
 @export var damage = 0
 
