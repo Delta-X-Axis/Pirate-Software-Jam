@@ -119,6 +119,9 @@ func inputs():
 	if Input.is_action_just_pressed("Select Treasure Illusion"):
 		current_spell = 1
 		print("A treasure chest?")
+	if Input.is_action_just_pressed("Select Thunderclap"):
+		current_spell = 2
+		print("THUNDERCLAP!")
 
 func move():
 	if state == 4:
@@ -157,6 +160,10 @@ func _process(_delta):
 		spells.append(spell)
 	if current_spell == 1:
 		spell = Illusory_Treasure.new()
+		add_child(spell)
+		spells.append(spell)
+	if current_spell == 2:
+		spell = Thunderclap.new()
 		add_child(spell)
 		spells.append(spell)
 
