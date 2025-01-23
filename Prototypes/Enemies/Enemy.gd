@@ -14,8 +14,11 @@ var stateTimer
 var transitionTime = 3.0
 
 var movement = 50
+var health = 30
+
 var target
 var playerTarget
+
 
 var detectArea
 
@@ -77,14 +80,27 @@ func move():
 	if (position.distance_to(target) <= 10):
 		setIdle()
 
+func damage(val):
+	health += -val
+
+func Alive():
+	if (health <= 0):
+		print("Dead!")
+		return false
+	else: return true
 
 func _process(_delta):
+	if !Alive():
+		self.queue_free()
+	
 	match state:
 		1:
 			move()
 		2:
 			target=playerTarget.position
 			move()
+			
+	#print(health)
 
 
 

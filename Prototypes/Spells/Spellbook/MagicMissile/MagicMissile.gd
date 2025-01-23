@@ -3,6 +3,8 @@ class_name Magic_Missile
 
 @export var MissileScene : PackedScene = preload("res://Prototypes/Spells/Spellbook/MagicMissile/Magic_Missile.tscn")
 @export var speed = 500
+@export var damageVal = 10
+
 var missile
 
 # Called when the node enters the scene tree for the first time.
@@ -40,3 +42,11 @@ func cast():
 	cooldownTimer.callback.connect(effect)
 	cooldownTimer.start()
 	usable = false
+	
+
+
+
+func _on_missile_detection_body_entered(body):
+	if (body.is_in_group("Enemy")):
+		body.damage(damageVal)
+		self.queue_free()
