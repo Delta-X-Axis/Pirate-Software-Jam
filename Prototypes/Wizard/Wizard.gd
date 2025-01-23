@@ -10,6 +10,8 @@ extends CharacterBody2D
 ## 4 - Interacting
 var state = 0
 
+var current_spell = 0
+
 var stateTimer
 var transitionTime = 3.0
 
@@ -21,7 +23,6 @@ var treasure
 
 var spells : Array
 var spell : Spell
-var spell2 : Spell
 
 
 
@@ -33,10 +34,6 @@ func _ready():
 	stateTimer.callback.connect(setWander)
 	add_child(stateTimer)
 	stateTimer.start()
-	
-	spell = Magic_Missile.new()
-	add_child(spell)
-	spells.append(spell)
 	
 	
 
@@ -116,6 +113,12 @@ func interact():
 func inputs():
 	if Input.is_action_just_pressed("Click"):
 		spell.cast()
+	if Input.is_action_just_pressed("Select Magic Missile"):
+		current_spell = 0
+		print("MAGIC MISSILE!")
+	if Input.is_action_just_pressed("Select Treasure Illusion"):
+		current_spell = 1
+		print("A treasure chest?")
 
 func move():
 	if state == 4:
@@ -148,6 +151,14 @@ func _process(_delta):
 			move()
 			
 	inputs()
+	if current_spell == 0:
+		spell = Magic_Missile.new()
+		add_child(spell)
+		spells.append(spell)
+	if current_spell == 1:
+		spell = Illusory_Treasure.new()
+		add_child(spell)
+		spells.append(spell)
 
 func _on_body_entered(body):
 	if (body.is_in_group("Enemy")):
