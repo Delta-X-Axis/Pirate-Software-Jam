@@ -1,4 +1,4 @@
-class_name PreEnemy
+class_name Enemy
 extends CharacterBody2D
 
 
@@ -69,7 +69,6 @@ func setAttracted(ref):
 	stateTimer.callback.connect(setIdle)
 	stateTimer.wait_time = runTime
 	stateTimer.reset()
-
 
 
 func move():

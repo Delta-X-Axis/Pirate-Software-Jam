@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://nikugv76k2js"]
 
-[ext_resource type="Script" path="res://Prototypes/Wizard/Wizard.gd" id="1_m41pc"]
-[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="2_ore1u"]
+[ext_resource type="Script" path="res://Prototypes/Wizard/Wizard.gd" id="1_gopn0"]
+[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="2_twn5i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1spvc"]
 radius = 6.0
@@ -17,7 +17,7 @@ script = ExtResource("1_gopn0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_ore1u")
+texture = ExtResource("2_twn5i")
 
 [node name="WizardCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1spvc")

@@ -12,7 +12,6 @@ var state = 0
 
 var current_spell = 0
 
-var health = 20
 var stateTimer
 var transitionTime = 3.0
 
@@ -110,9 +109,8 @@ func interact():
 		stateTimer.reset()
 		stateTimer.start()
 		
-
+		
 func inputs():
-<<<<<<< HEAD
 	if Input.is_action_just_pressed("Click"):
 		spell.cast()
 	if Input.is_action_just_pressed("Select Magic Missile"):
@@ -124,10 +122,6 @@ func inputs():
 	if Input.is_action_just_pressed("Select Thunderclap"):
 		current_spell = 2
 		print("THUNDERCLAP!")
-=======
-	if Input.is_action_just_pressed("Num1"):
-		spells[0].cast()
->>>>>>> 95c83d31ab6f5521f0444ca80448f293436a91f3
 
 func move():
 	if state == 4:
