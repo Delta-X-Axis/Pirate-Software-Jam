@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpjgm12j4t8si"]
 
 [ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="1_3qvmo"]
-[ext_resource type="Script" path="res://Prototypes/Treasure/Illusion_Treasure/Illusion_Treasure.gd" id="1_us1ve"]
+[ext_resource type="Script" path="res://Prototypes/Spells/Spellbook/Illusory Treasure/Object/Illusion_Treasure.gd" id="1_us1ve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4k56e"]
 size = Vector2(31, 13)
 
 [node name="IllusionTreasure" type="CharacterBody2D" groups=["Treasure"]]
 z_index = 4
-collision_layer = 8
-collision_mask = 8
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_us1ve")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

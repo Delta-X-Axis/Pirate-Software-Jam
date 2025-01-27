@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4735bhmo167i"]
 
-[ext_resource type="Script" path="res://Prototypes/Spells/Spellbook/Thunderclap/Thunderclap.gd" id="1_wf5b2"]
-[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="2_x3vhl"]
+[ext_resource type="Script" path="res://Prototypes/Spells/Spellbook/Thunderclap/Projectile/Clap.gd" id="1_ls8d2"]
+[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="2_hqbov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmgqg"]
 
@@ -9,7 +9,7 @@
 modulate = Color(99.3255, 0.317647, 0.690196, 1)
 self_modulate = Color(1, 0, 1, 1)
 scale = Vector2(2, 2)
-script = ExtResource("1_wf5b2")
+script = ExtResource("1_ls8d2")
 
 [node name="ClapCollision" type="CollisionShape2D" parent="."]
 position = Vector2(20, 0)
@@ -21,4 +21,4 @@ modulate = Color(0, 0.0862745, 1, 1)
 position = Vector2(20, 0)
 rotation = -3.14159
 scale = Vector2(1.21375, -1.20508)
-texture = ExtResource("2_x3vhl")
+texture = ExtResource("2_hqbov")

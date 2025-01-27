@@ -22,8 +22,8 @@ var detectArea
 var treasure
 
 var spells : Array
-var spell : Spell
 
+signal addItem
 
 
 func _ready():
@@ -36,6 +36,17 @@ func _ready():
 	stateTimer.start()
 	
 	
+	var spell = Magic_Missile.new()
+	add_child(spell)
+	spells.append(spell)
+	
+	spell = Illusory_Treasure.new()
+	add_child(spell)
+	spells.append(spell)
+	
+	spell = Thunderclap.new()
+	add_child(spell)
+	spells.append(spell)
 
 
 func setIdle():
@@ -52,12 +63,21 @@ func setIdle():
 	stateTimer.start()
 	return
 
+
 func setWander():
 	state = 1
 	var wanderDirection = randf_range(-PI, PI)
 	var wanderDistance = randi_range(50, 300)
 	
 	target = position + (Vector2.from_angle(wanderDirection) * wanderDistance)
+	
+	for dict in stateTimer.callback.get_connections():
+		stateTimer.callback.disconnect(dict.callable)
+	stateTimer.callback.connect(setIdle)
+	stateTimer.wait_time = 3.0
+	stateTimer.reset()
+	stateTimer.start()
+
 
 func setFrightened(pos):
 	if state == 4:
@@ -78,6 +98,7 @@ func setFrightened(pos):
 	stateTimer.wait_time = runTime
 	stateTimer.reset()
 	stateTimer.start()
+
 
 func setAttracted(pos):
 	if state == 3:
@@ -100,31 +121,29 @@ func interact():
 	if state == 0:
 		treasure.queue_free()
 		stateTimer.callback.connect(setWander)
-		return
 	
 	if state == 4:
 		stateTimer.callback.connect(setIdle)
 		stateTimer.callback.connect(treasure.queue_free)
 		stateTimer.wait_time = interactTime
-		stateTimer.reset()
-		stateTimer.start()
-		
-		
+	
+	stateTimer.reset()
+	stateTimer.start()
+
+
 func inputs():
 	if Input.is_action_just_pressed("Click"):
-		spell.cast()
+		spells[current_spell].cast()
 	if Input.is_action_just_pressed("Select Magic Missile"):
 		current_spell = 0
-		print("MAGIC MISSILE!")
 	if Input.is_action_just_pressed("Select Treasure Illusion"):
 		current_spell = 1
-		print("A treasure chest?")
 	if Input.is_action_just_pressed("Select Thunderclap"):
 		current_spell = 2
-		print("THUNDERCLAP!")
+
 
 func move():
-	if state == 4:
+	if state == 0 ||state == 4:
 		return
 	
 	velocity = position.direction_to(target) * movement
@@ -144,28 +163,11 @@ func move():
 			3:
 				setIdle()
 
+
 func _process(_delta):
-	match state:
-		1:
-			move()
-		2:
-			move()
-		3:
-			move()
-			
+	move()
 	inputs()
-	if current_spell == 0:
-		spell = Magic_Missile.new()
-		add_child(spell)
-		spells.append(spell)
-	if current_spell == 1:
-		spell = Illusory_Treasure.new()
-		add_child(spell)
-		spells.append(spell)
-	if current_spell == 2:
-		spell = Thunderclap.new()
-		add_child(spell)
-		spells.append(spell)
+
 
 func _on_body_entered(body):
 	if (body.is_in_group("Enemy")):

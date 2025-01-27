@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5vnlfkdwf5b6"]
 
-[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="1_jc8l1"]
-[ext_resource type="Script" path="res://Prototypes/Spells/Spellbook/MagicMissile/MagicMissile.gd" id="1_qapub"]
+[ext_resource type="Script" path="res://Prototypes/Spells/Spellbook/MagicMissile/Projectile/Missile.gd" id="1_5pppd"]
+[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="2_8gpq0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1fjn"]
 
 [node name="MagicMissile" type="CharacterBody2D" groups=["MagicMissile"]]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_qapub")
+script = ExtResource("1_5pppd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 1, 0.745098)
 texture_filter = 1
-texture = ExtResource("1_jc8l1")
+texture = ExtResource("2_8gpq0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color(0, 1, 0, 1)
@@ -26,4 +26,4 @@ collision_mask = 2
 modulate = Color(0, 1, 0, 1)
 shape = SubResource("CapsuleShape2D_v1fjn")
 
-[connection signal="body_entered" from="Missile_Detection" to="." method="_on_missile_detection_body_entered"]
+[connection signal="body_entered" from="Missile_Detection" to="." method="_on_body_entered"]

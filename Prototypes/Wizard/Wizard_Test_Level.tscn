@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://ba6o0fkaa7mlb" path="res://Assets/Level/Level.tres" id="3_rliu2"]
 [ext_resource type="PackedScene" uid="uid://b3nrshmnqk4vq" path="res://Prototypes/Enemies/Enemy.tscn" id="4_smj5s"]
 [ext_resource type="PackedScene" uid="uid://bxasob4cd07o6" path="res://Prototypes/Treasure/Treasure.tscn" id="5_qnond"]
-[ext_resource type="PackedScene" uid="uid://cpjgm12j4t8si" path="res://Prototypes/Treasure/Illusion_Treasure/Illusion_treasure.tscn" id="6_m8fb3"]
+[ext_resource type="PackedScene" uid="uid://cpjgm12j4t8si" path="res://Prototypes/Spells/Spellbook/Illusory Treasure/Object/Illusion_treasure.tscn" id="6_m8fb3"]
 
 [node name="WizardTestLevel" type="Node2D"]
 script = ExtResource("1_1nt5k")

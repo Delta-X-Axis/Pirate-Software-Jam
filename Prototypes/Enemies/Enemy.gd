@@ -56,6 +56,14 @@ func setWander():
 	var wanderDistance = randi_range(10, 50)
 	
 	target = position + (Vector2.from_angle(wanderDirection) * wanderDistance)
+	
+	for dict in stateTimer.callback.get_connections():
+		stateTimer.callback.disconnect(dict.callable)
+	stateTimer.callback.connect(setIdle)
+	stateTimer.wait_time = 3.0
+	stateTimer.reset()
+	stateTimer.start()
+
 
 
 func setAttracted(ref):
