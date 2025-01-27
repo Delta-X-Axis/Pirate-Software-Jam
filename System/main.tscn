@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://System/main.gd" id="1_72bug"]
 [ext_resource type="PackedScene" path="res://UI/Scenes/title.tscn" id="2_gir7t"]
 [ext_resource type="PackedScene" path="res://UI/Scenes/Credits.tscn" id="3_hdlqr"]
-[ext_resource type="PackedScene" uid="uid://c2sqeqwg3paet" path="res://Prototypes/Wizard/Wizard_Test_Level.tscn" id="4_cgllp"]
+[ext_resource type="PackedScene" uid="uid://bvetit3s1ebdh" path="res://Level/Tilemap_Test.tscn" id="4_gwmqc"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_72bug")
 startScene = ExtResource("2_gir7t")
 creditsScene = ExtResource("3_hdlqr")
-gameScene = ExtResource("4_cgllp")
+gameScene = ExtResource("4_gwmqc")

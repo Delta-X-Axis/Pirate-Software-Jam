@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxasob4cd07o6"]
+
+[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="1_d5jo3"]
+[ext_resource type="Script" path="res://Objects/Treasure.gd" id="1_pi6w7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgc7y"]
+size = Vector2(18, 7)
+
+[node name="Treasure" type="CharacterBody2D" groups=["Treasure"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_pi6w7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(15.1059, 6.07451, 0, 1)
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("1_d5jo3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_pgc7y")

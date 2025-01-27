@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpjgm12j4t8si"]
+
+[ext_resource type="Script" path="res://Spell/Spellbook/Illusory Treasure/Object/Illusion_Treasure.gd" id="1_rrw60"]
+[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="2_2mrpm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k56e"]
+size = Vector2(31, 13)
+
+[node name="IllusionTreasure" type="CharacterBody2D" groups=["Treasure"]]
+z_index = 4
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_rrw60")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(8.648, 5.946, 2.703, 1)
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("2_2mrpm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_4k56e")
