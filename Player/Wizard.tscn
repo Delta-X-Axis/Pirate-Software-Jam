@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://nikugv76k2js"]
 
-[ext_resource type="Script" path="res://Prototypes/Wizard/Wizard.gd" id="1_gopn0"]
+[ext_resource type="Script" path="res://Player/Wizard.gd" id="1_gopn0"]
 [ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="2_twn5i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1spvc"]

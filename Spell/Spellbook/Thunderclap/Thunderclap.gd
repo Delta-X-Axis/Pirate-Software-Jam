@@ -1,7 +1,7 @@
-extends "res://Prototypes/Spells/Evocation.gd"
+extends Evocation
 class_name Thunderclap
 
-@export var ClapScene : PackedScene = preload("res://Prototypes/Spells/Spellbook/Thunderclap/Projectile/Thunderclap.tscn")
+@export var ClapScene : PackedScene = preload("res://Spell/Spellbook/Thunderclap/Projectile/Thunderclap.tscn")
 var clap
 
 # Called when the node enters the scene tree for the first time.

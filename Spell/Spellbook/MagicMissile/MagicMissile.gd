@@ -1,7 +1,7 @@
 extends Evocation
 class_name Magic_Missile
 
-var MissileScene : PackedScene = preload("res://Prototypes/Spells/Spellbook/MagicMissile/Projectile/Magic_Missile.tscn")
+var MissileScene : PackedScene = preload("res://Spell/Spellbook/MagicMissile/Projectile/Magic_Missile.tscn")
 var missile
 
 # Called when the node enters the scene tree for the first time.

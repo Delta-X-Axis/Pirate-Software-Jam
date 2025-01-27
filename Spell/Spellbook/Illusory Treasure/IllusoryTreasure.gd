@@ -1,7 +1,7 @@
 extends Conjuration
 class_name Illusory_Treasure
 
-@export var ChestScene : PackedScene = preload("res://Prototypes/Spells/Spellbook/Illusory Treasure/Object/Illusion_treasure.tscn")
+@export var ChestScene : PackedScene = preload("res://Spell/Spellbook/Illusory Treasure/Object/Illusion_treasure.tscn")
 var chest
 
 # Called when the node enters the scene tree for the first time.

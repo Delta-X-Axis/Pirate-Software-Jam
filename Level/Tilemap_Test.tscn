@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvetit3s1ebdh"]
 
-[ext_resource type="Script" path="res://Prototypes/Level/Tilemap_Test.gd" id="1_ku85a"]
+[ext_resource type="Script" path="res://Level/Tilemap_Test.gd" id="1_ku85a"]
 [ext_resource type="TileSet" uid="uid://ba6o0fkaa7mlb" path="res://Assets/Level/Level.tres" id="1_uygo7"]
-[ext_resource type="PackedScene" uid="uid://nikugv76k2js" path="res://Prototypes/Wizard/Wizard.tscn" id="4_fj3qw"]
-[ext_resource type="PackedScene" uid="uid://b3nrshmnqk4vq" path="res://Prototypes/Enemies/Enemy.tscn" id="4_vbuwj"]
+[ext_resource type="PackedScene" uid="uid://nikugv76k2js" path="res://Player/Wizard.tscn" id="3_irf3x"]
+[ext_resource type="PackedScene" uid="uid://b3nrshmnqk4vq" path="res://Enemies/Enemy.tscn" id="4_qwate"]
 
 [node name="TilemapTest" type="Node2D"]
 script = ExtResource("1_ku85a")
@@ -17,20 +17,20 @@ layer_0/tile_data = PackedInt32Array(1048557, 262145, 5, 1048558, 196609, 5, 983
 layer_1/name = "Gate"
 layer_1/tile_data = PackedInt32Array(-1572865, 786433, 8, -1507329, 786433, 9, -1638400, 851969, 8, -1572864, 851969, 9, -4194305, 786433, 8, -4128769, 786433, 9, -4259840, 851969, 8, -4194304, 851969, 9, -6815745, 786433, 8, -6750209, 786433, 9, -6881280, 851969, 8, -6815744, 851969, 9)
 
-[node name="Wizard" parent="." instance=ExtResource("4_fj3qw")]
+[node name="Wizard" parent="." instance=ExtResource("3_irf3x")]
 position = Vector2(0, 24)
 
 [node name="Camera2D" type="Camera2D" parent="Wizard"]
 zoom = Vector2(3, 3)
 
-[node name="Enemy" parent="." instance=ExtResource("4_vbuwj")]
+[node name="Enemy" parent="." instance=ExtResource("4_qwate")]
 position = Vector2(-271, -312)
 
-[node name="Enemy2" parent="." instance=ExtResource("4_vbuwj")]
+[node name="Enemy2" parent="." instance=ExtResource("4_qwate")]
 position = Vector2(179, -300)
 
-[node name="Enemy3" parent="." instance=ExtResource("4_vbuwj")]
+[node name="Enemy3" parent="." instance=ExtResource("4_qwate")]
 position = Vector2(-144, -146)
 
-[node name="Enemy4" parent="." instance=ExtResource("4_vbuwj")]
+[node name="Enemy4" parent="." instance=ExtResource("4_qwate")]
 position = Vector2(155, -115)
