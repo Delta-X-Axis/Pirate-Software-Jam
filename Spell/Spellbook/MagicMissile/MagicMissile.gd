@@ -18,5 +18,5 @@ func cast():
 	super.cast()
 		
 	missile = MissileScene.instantiate()
-	get_parent().get_parent().add_child(missile)
+	GameBus.addItem.emit(missile)
 	missile.setVals(get_parent().position, target)

@@ -18,7 +18,7 @@ func cast():
 	super.cast()
 		
 	clap = ClapScene.instantiate()
-	get_parent().get_parent().add_child(clap)
+	GameBus.addItem.emit(clap)
 	clap.global_position = get_parent().position
 	clap.look_at(target)
 	

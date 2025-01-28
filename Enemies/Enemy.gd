@@ -19,7 +19,7 @@ var health = 30
 var target
 var playerTarget
 
-
+var dmg = 1
 var detectArea
 
 
@@ -79,13 +79,18 @@ func setAttracted(ref):
 	stateTimer.reset()
 
 
-func move():
+func move(time):
 	velocity = position.direction_to(target) * movement
 	detectArea.rotation = velocity.angle()
 	
-	move_and_slide()
+	var collision = move_and_collide(velocity * time)
 	
-	if (position.distance_to(target) <= 10):
+	if collision && collision.get_collider().has_method("hit"):
+		collision.get_collider().hit(dmg, position)
+		setIdle()
+		return
+	
+	if (position.distance_to(target) <= 3):
 		setIdle()
 
 func damage(val):
@@ -103,10 +108,10 @@ func _process(_delta):
 	
 	match state:
 		1:
-			move()
+			move(_delta)
 		2:
 			target=playerTarget.position
-			move()
+			move(_delta)
 			
 	#print(health)
 

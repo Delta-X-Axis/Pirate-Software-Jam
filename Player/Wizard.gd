@@ -10,7 +10,7 @@ extends CharacterBody2D
 ## 4 - Interacting
 var state = 0
 
-var current_spell = 0
+var health = 10
 
 var stateTimer
 var transitionTime = 3.0
@@ -22,6 +22,7 @@ var detectArea
 var treasure
 
 var spells : Array
+var current_spell = 0
 
 signal addItem
 
@@ -163,6 +164,18 @@ func move():
 			3:
 				setIdle()
 
+func hit(dmg, pos):
+	health -= health
+	if health <= 0:
+		die()
+		return
+		
+	setFrightened(pos)
+
+
+func die():
+	GameBus.endGame.emit()
+
 
 func _process(_delta):
 	move()
@@ -170,9 +183,6 @@ func _process(_delta):
 
 
 func _on_body_entered(body):
-	if (body.is_in_group("Enemy")):
-		setFrightened(body.position)
-		return
 	if (body.is_in_group("Treasure")):
 		if state == 3:
 			return

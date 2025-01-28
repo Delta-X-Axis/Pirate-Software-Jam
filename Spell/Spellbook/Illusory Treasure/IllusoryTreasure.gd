@@ -18,7 +18,7 @@ func cast():
 	super.cast()
 	
 	chest = ChestScene.instantiate()
-	get_parent().get_parent().add_child(chest)
+	GameBus.addItem.emit(chest)
 	chest.global_position = target
 	
 	cooldownTimer.start()
