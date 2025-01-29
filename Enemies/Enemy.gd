@@ -112,8 +112,7 @@ func _process(_delta):
 		2:
 			target=playerTarget.position
 			move(_delta)
-			
-	#print(health)
+
 
 
 

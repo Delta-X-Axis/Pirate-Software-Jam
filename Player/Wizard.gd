@@ -107,6 +107,7 @@ func setAttracted(pos):
 		
 	state = 2
 	target = pos
+	stateTimer.reset()
 
 
 func interact():
@@ -165,7 +166,7 @@ func move():
 				setIdle()
 
 func hit(dmg, pos):
-	health -= health
+	health -= dmg
 	if health <= 0:
 		die()
 		return

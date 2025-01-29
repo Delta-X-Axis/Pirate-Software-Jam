@@ -1,6 +1,8 @@
 extends Node
 
 
+var points = 0
+
 signal addItem
 signal endGame
 
