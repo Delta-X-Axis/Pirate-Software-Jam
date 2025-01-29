@@ -11,7 +11,7 @@ collision_mask = 0
 script = ExtResource("1_xyny1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 1, 0.745098)
+modulate = Color(0.855776, 0.181959, 0.323595, 0.745098)
 texture_filter = 1
 texture = ExtResource("2_ne1t8")
 
@@ -23,7 +23,8 @@ shape = SubResource("CapsuleShape2D_v1fjn")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Missile_Detection"]
-modulate = Color(0, 1, 0, 1)
+modulate = Color(0.918904, 0.267895, 0.278919, 1)
 shape = SubResource("CapsuleShape2D_v1fjn")
+debug_color = Color(0.873964, 0.331917, 0.263775, 0.42)
 
 [connection signal="body_entered" from="Missile_Detection" to="." method="_on_body_entered"]

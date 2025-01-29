@@ -25,6 +25,8 @@ var spells : Array
 var current_spell = 0
 
 signal addItem
+signal selectSpell
+signal castSpell
 
 
 func _ready():
@@ -136,12 +138,16 @@ func interact():
 func inputs():
 	if Input.is_action_just_pressed("Click"):
 		spells[current_spell].cast()
+		castSpell.emit()
 	if Input.is_action_just_pressed("Select Magic Missile"):
 		current_spell = 0
+		selectSpell.emit(current_spell)
 	if Input.is_action_just_pressed("Select Treasure Illusion"):
 		current_spell = 1
+		selectSpell.emit(current_spell)
 	if Input.is_action_just_pressed("Select Thunderclap"):
 		current_spell = 2
+		selectSpell.emit(current_spell)
 
 
 func move():
