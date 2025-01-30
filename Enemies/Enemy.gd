@@ -99,6 +99,7 @@ func damage(val):
 func Alive():
 	if (health <= 0):
 		print("Dead!")
+		GameBus.addPoints(2)
 		return false
 	else: return true
 

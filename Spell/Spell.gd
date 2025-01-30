@@ -8,6 +8,7 @@ var target
 
 var usable:bool = true
 var spell_name : String
+signal castSpell
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,9 +23,10 @@ func makeUsable():
 
 
 func cast():
+	castSpell.emit()
 	target = get_global_mouse_position()
 	cooldownTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

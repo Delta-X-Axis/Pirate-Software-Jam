@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvetit3s1ebdh"]
+[gd_scene load_steps=7 format=3 uid="uid://bvetit3s1ebdh"]
 
 [ext_resource type="Script" path="res://System/game.gd" id="1_mvyjk"]
 [ext_resource type="TileSet" uid="uid://ba6o0fkaa7mlb" path="res://Assets/Level/Level.tres" id="1_uygo7"]
 [ext_resource type="PackedScene" uid="uid://nikugv76k2js" path="res://Player/Wizard.tscn" id="3_irf3x"]
 [ext_resource type="PackedScene" uid="uid://b3nrshmnqk4vq" path="res://Enemies/Enemy.tscn" id="4_qwate"]
-[ext_resource type="PackedScene" uid="uid://cr5udstpju8k5" path="res://UI/Scenes/PlayerUI.tscn" id="4_wnbpp"]
 [ext_resource type="PackedScene" uid="uid://bxasob4cd07o6" path="res://Objects/Treasure.tscn" id="5_rwm0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ae8g"]
@@ -25,8 +24,6 @@ layer_1/tile_data = PackedInt32Array(720894, 786433, 9, 720895, 786433, 9, 65536
 
 [node name="Wizard" parent="." instance=ExtResource("3_irf3x")]
 position = Vector2(0, 24)
-
-[node name="PlayerUi" parent="Wizard" instance=ExtResource("4_wnbpp")]
 
 [node name="Enemy" parent="." instance=ExtResource("4_qwate")]
 position = Vector2(31, 379)
@@ -151,5 +148,4 @@ shape = SubResource("RectangleShape2D_6ae8g")
 [node name="Treasure10" parent="." instance=ExtResource("5_rwm0l")]
 position = Vector2(1070, 455)
 
-[connection signal="selectSpell" from="Wizard" to="Wizard/PlayerUi" method="_on_wizard_select_spell"]
 [connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

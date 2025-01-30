@@ -9,8 +9,8 @@
 points = PackedVector2Array(100, 90, 0, 20, -15, 15, -20, 0, -15, -15, 0, -20, 100, -90, 120, -50, 130, 0, 120, 50)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 10
+collision_mask = 11
 script = ExtResource("1_4sgvr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

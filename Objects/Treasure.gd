@@ -8,10 +8,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _interact():
-	GameBus.points += value
-	print(GameBus.points)
+	GameBus.addPoints(value)
 	return 4
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

@@ -51,6 +51,8 @@ func startRun():
 	game = gameScene.instantiate()
 	add_child(game)
 	
+	
+	GameBus.didWin = false
 	## Connect signals
 	game.end_run.connect(endRun)
 	game.end_game.connect(quitGame)

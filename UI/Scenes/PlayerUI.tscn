@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr5udstpju8k5"]
+[gd_scene load_steps=8 format=3 uid="uid://cr5udstpju8k5"]
 
 [ext_resource type="Script" path="res://UI/Scenes/PlayerUI.gd" id="1_dm8sv"]
 [ext_resource type="Texture2D" uid="uid://dxs3qnw7v2ik0" path="res://Spell/Icons/fireball.png" id="1_lkkij"]
 [ext_resource type="Texture2D" uid="uid://ov8sbj7dppr6" path="res://Spell/Icons/coin.png" id="2_bsf8q"]
 [ext_resource type="Texture2D" uid="uid://bx66gdwlwai8p" path="res://Spell/Icons/frame.png" id="2_evmj2"]
 [ext_resource type="Texture2D" uid="uid://ded7kpwo565so" path="res://Spell/Icons/shockwave.png" id="3_anyyr"]
+[ext_resource type="Texture2D" uid="uid://dbi0x7flnjvor" path="res://UI/Assets/Heart.png" id="6_tmd6k"]
+[ext_resource type="Texture2D" uid="uid://bhk7jj8435e37" path="res://UI/Assets/Coin.png" id="7_qpbio"]
 
 [node name="PlayerUi" type="Node2D"]
+z_index = 10
 script = ExtResource("1_dm8sv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -14,7 +17,7 @@ zoom = Vector2(3, 3)
 
 [node name="Missile" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-150, 75)
+position = Vector2(-185, 75)
 scale = Vector2(2, 2)
 texture = ExtResource("1_lkkij")
 
@@ -23,7 +26,7 @@ texture = ExtResource("2_evmj2")
 
 [node name="Treasure" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-100, 75)
+position = Vector2(-150, 75)
 scale = Vector2(2, 2)
 texture = ExtResource("2_bsf8q")
 
@@ -33,10 +36,53 @@ texture = ExtResource("2_evmj2")
 
 [node name="Clap" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-50, 75)
+position = Vector2(-115, 75)
 scale = Vector2(2, 2)
 texture = ExtResource("3_anyyr")
 
 [node name="Frame" type="Sprite2D" parent="Clap"]
 visible = false
 texture = ExtResource("2_evmj2")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-188, 113)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+texture = ExtResource("6_tmd6k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(16, 0)
+texture = ExtResource("6_tmd6k")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("6_tmd6k")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(48, 0)
+texture = ExtResource("6_tmd6k")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(64, 0)
+texture = ExtResource("6_tmd6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-182, -94)
+scale = Vector2(2, 2)
+texture = ExtResource("7_qpbio")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+texture_filter = 1
+offset_left = 11.0
+offset_top = -11.5
+offset_right = 51.0
+offset_bottom = 11.5
+text = "0
+"

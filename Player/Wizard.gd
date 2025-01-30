@@ -10,7 +10,7 @@ extends CharacterBody2D
 ## 4 - Interacting
 var state = 0
 
-var health = 10
+var health = 5
 
 var stateTimer
 var transitionTime = 3.0
@@ -27,6 +27,7 @@ var current_spell = 0
 signal addItem
 signal selectSpell
 signal castSpell
+signal getHit
 
 
 func _ready():
@@ -50,6 +51,8 @@ func _ready():
 	spell = Thunderclap.new()
 	add_child(spell)
 	spells.append(spell)
+	
+	get_node("PlayerUi").setSpells()
 
 
 func setIdle():
@@ -176,7 +179,7 @@ func hit(dmg, pos):
 	if health <= 0:
 		die()
 		return
-		
+	getHit.emit()
 	setFrightened(pos)
 
 

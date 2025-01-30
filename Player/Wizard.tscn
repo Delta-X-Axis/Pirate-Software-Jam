@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://nikugv76k2js"]
+[gd_scene load_steps=8 format=3 uid="uid://nikugv76k2js"]
 
 [ext_resource type="Script" path="res://Player/Wizard.gd" id="1_gopn0"]
 [ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="2_twn5i"]
 [ext_resource type="Texture2D" uid="uid://d23176wnkn780" path="res://Assets/Level/Top Down - Basic/TX Plant.png" id="3_q10qk"]
+[ext_resource type="PackedScene" uid="uid://cr5udstpju8k5" path="res://UI/Scenes/PlayerUI.tscn" id="4_vht3a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1spvc"]
 radius = 6.0
@@ -41,4 +42,8 @@ z_index = 10
 position = Vector2(20, 0)
 texture = SubResource("AtlasTexture_67i56")
 
+[node name="PlayerUi" parent="." node_paths=PackedStringArray("playerRef") instance=ExtResource("4_vht3a")]
+playerRef = NodePath("..")
+
+[connection signal="selectSpell" from="." to="PlayerUi" method="_on_wizard_select_spell"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
