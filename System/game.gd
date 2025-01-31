@@ -59,6 +59,11 @@ func endGame():
 	queue_free()
 
 func loadEndCard():
+	var kids = get_children()
+	
+	for i in kids.size():
+		kids[i].queue_free()
+	
 	endCard = endScene.instantiate()
 	add_child(endCard)
 	endCard.title.connect(endRun)

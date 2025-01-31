@@ -50,11 +50,11 @@ func quitButtonPressed():
 func display():
 	var dimensions = get_viewport().size
 
-	scoreDisplay.position.x = dimensions.x/2 - scoreDisplay.size.x/2
-	scoreDisplay.position.y = dimensions.y/2 - margin
-
 	scoreLabel.position.x = dimensions.x/2 - scoreLabel.size.x/2
-	scoreLabel.position.y = dimensions.y/2 - margin
+	scoreLabel.position.y = dimensions.y/2 - (margin * 3)
+	
+	scoreDisplay.position.x = dimensions.x/2 - scoreDisplay.size.x/2 + scoreLabel.size.x/2
+	scoreDisplay.position.y = dimensions.y/2 - (margin * 3)
 
 	titleButton.position.x = dimensions.x/2 - titleButton.size.x/2
 	titleButton.position.y = dimensions.y/2 + margin
