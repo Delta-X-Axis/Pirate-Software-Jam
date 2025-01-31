@@ -22,6 +22,8 @@ var playerTarget
 var dmg = 1
 var detectArea
 
+var sprite
+
 
 func _ready():
 	detectArea = get_node("Area2D")
@@ -31,11 +33,16 @@ func _ready():
 	stateTimer.callback.connect(setWander)
 	add_child(stateTimer)
 	stateTimer.start()
+	
+	sprite = get_node("Sprite")
 
 
 func setIdle():
 	if state == 2:
 		playerTarget = null
+		
+	sprite.stop()
+		
 	velocity = Vector2.ZERO
 	target = null
 	
@@ -83,6 +90,20 @@ func move(time):
 	velocity = position.direction_to(target) * movement
 	detectArea.rotation = velocity.angle()
 	
+	
+	var dir = velocity.angle()
+	
+	if dir < PI/4 && dir >-PI/4:
+		sprite.play("Right")
+	if dir < PI/4 * 3 && dir >PI/4:
+		sprite.play("Down")
+	if abs(velocity.angle_to(Vector2.LEFT)) < PI/4:
+		sprite.play("Left")
+	if dir < -PI/4 && dir >-PI/4*3:
+		sprite.play("Up")
+	
+	
+	
 	var collision = move_and_collide(velocity * time)
 	
 	if collision && collision.get_collider().has_method("hit"):
@@ -93,8 +114,9 @@ func move(time):
 	if (position.distance_to(target) <= 3):
 		setIdle()
 
+
 func damage(val):
-	health += -val
+	health -= val
 
 func Alive():
 	if (health <= 0):

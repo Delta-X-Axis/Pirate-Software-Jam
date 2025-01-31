@@ -24,6 +24,9 @@ var treasure
 var spells : Array
 var current_spell = 0
 
+var sprite
+
+
 signal addItem
 signal selectSpell
 signal castSpell
@@ -52,6 +55,7 @@ func _ready():
 	add_child(spell)
 	spells.append(spell)
 	
+	sprite = get_node("Sprite")
 	get_node("PlayerUi").setSpells()
 
 
@@ -67,6 +71,7 @@ func setIdle():
 	stateTimer.wait_time = transitionTime
 	stateTimer.reset()
 	stateTimer.start()
+	sprite.stop()
 	return
 
 
@@ -119,6 +124,7 @@ func interact():
 	if state == 3 || treasure == null:
 		return
 		
+	sprite.stop()
 	state = treasure._interact()
 	velocity = Vector2.ZERO
 	var interactTime = 2.0
@@ -161,6 +167,18 @@ func move():
 	if state == 3:
 		velocity *= 1.5
 	detectArea.rotation = velocity.angle()
+	
+	
+	var dir = velocity.angle()
+	
+	if dir < PI/4 && dir >-PI/4:
+		sprite.play("Right")
+	if dir < PI/4 * 3 && dir >PI/4:
+		sprite.play("Down")
+	if abs(velocity.angle_to(Vector2.LEFT)) < PI/4:
+		sprite.play("Left")
+	if dir < -PI/4 && dir >-PI/4*3:
+		sprite.play("Up")
 	
 	move_and_slide()
 	

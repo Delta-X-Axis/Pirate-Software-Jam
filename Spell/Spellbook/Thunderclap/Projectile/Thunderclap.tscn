@@ -23,3 +23,5 @@ position = Vector2(20, 0)
 rotation = -3.14159
 scale = Vector2(1.21375, -1.20508)
 texture = ExtResource("2_v53t1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

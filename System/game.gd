@@ -9,6 +9,10 @@ extends Node
 var pauseMenu
 
 
+@export var endScene: PackedScene
+var endCard
+
+
 #############
 ## SIGNALS ##
 #############
@@ -47,6 +51,19 @@ func addItem(ref):
 
 func endRun():
 	end_run.emit()
+	get_tree().paused = false;
+	queue_free()
+	
+func endGame():
+	end_game.emit()
+	queue_free()
+
+func loadEndCard():
+	endCard = endScene.instantiate()
+	add_child(endCard)
+	endCard.title.connect(endRun)
+	endCard.quitGame.connect(endGame)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -56,4 +73,4 @@ func _process(_delta):
 func _on_finish_body_entered(body):
 	if body.is_in_group("Wizard"):
 		GameBus.didWin = true
-		endRun()
+		loadEndCard()

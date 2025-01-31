@@ -26,10 +26,6 @@ GameBus="*res://System/Busses/GameBus.gd"
 
 project/assembly_name="Pirate-software-jam"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
-
 [input]
 
 Up={

@@ -53,6 +53,7 @@ func startRun():
 	
 	
 	GameBus.didWin = false
+	GameBus.points = 0
 	## Connect signals
 	game.end_run.connect(endRun)
 	game.end_game.connect(quitGame)
