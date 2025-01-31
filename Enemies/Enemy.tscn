@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3nrshmnqk4vq"]
 
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_4sgvr"]
-[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="2_2lbhu"]
+[ext_resource type="PackedScene" uid="uid://c5hu0mg17lfjk" path="res://Enemies/Kobold Sprites.aseprite" id="2_diqcq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1spvc"]
 
@@ -13,10 +13,10 @@ collision_layer = 10
 collision_mask = 11
 script = ExtResource("1_4sgvr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 3.244, 1, 1)
-texture_filter = 1
-texture = ExtResource("2_2lbhu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Kobold Sprites" parent="." instance=ExtResource("2_diqcq")]
+animation = &"KS"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1spvc")

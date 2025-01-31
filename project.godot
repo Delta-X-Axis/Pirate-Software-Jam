@@ -14,9 +14,21 @@ config/name="Pirate-software-jam"
 run/main_scene="res://System/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 
+[aseprite_importers]
+
+aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite/Aseprite.exe"
+
 [autoload]
 
 GameBus="*res://System/Busses/GameBus.gd"
+
+[dotnet]
+
+project/assembly_name="Pirate-software-jam"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
 [input]
 
@@ -67,5 +79,6 @@ Click={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
