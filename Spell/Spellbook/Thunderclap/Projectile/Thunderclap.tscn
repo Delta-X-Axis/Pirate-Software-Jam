@@ -1,27 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4735bhmo167i"]
+[gd_scene load_steps=10 format=3 uid="uid://b4735bhmo167i"]
 
 [ext_resource type="Script" path="res://Spell/Spellbook/Thunderclap/Projectile/Clap.gd" id="1_fr5fq"]
-[ext_resource type="Texture2D" uid="uid://b4ruo6033docx" path="res://Assets/Character/Wizard.tres" id="2_v53t1"]
+[ext_resource type="Texture2D" uid="uid://bqkej03qukord" path="res://Spell/Spellbook/Thunderclap/Projectile/Shockwave-Sheet.png" id="2_lukl3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmgqg"]
+size = Vector2(23.625, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvdcb"]
+atlas = ExtResource("2_lukl3")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xprhm"]
+atlas = ExtResource("2_lukl3")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vindq"]
+atlas = ExtResource("2_lukl3")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxtu1"]
+atlas = ExtResource("2_lukl3")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmlx3"]
+atlas = ExtResource("2_lukl3")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxmic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvdcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xprhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vindq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxtu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmlx3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ClapBox" type="Area2D" groups=["Thunderclap"]]
-modulate = Color(99.3255, 0.317647, 0.690196, 1)
-self_modulate = Color(1, 0, 1, 1)
-scale = Vector2(2, 2)
 collision_mask = 2
 script = ExtResource("1_fr5fq")
 
 [node name="ClapCollision" type="CollisionShape2D" parent="."]
-position = Vector2(20, 0)
+position = Vector2(23.375, 0)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_qmgqg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.0862745, 1, 1)
-position = Vector2(20, 0)
-rotation = -3.14159
-scale = Vector2(1.21375, -1.20508)
-texture = ExtResource("2_v53t1")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 0)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_mxmic")
+speed_scale = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

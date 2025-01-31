@@ -10,12 +10,15 @@ func _ready():
 	rangeTimer.wait_time = 1.0
 	rangeTimer.callback.connect(kill)
 	add_child(rangeTimer)
+	
+	get_node("AnimatedSprite2D").play()
 
 
 func setVals(start, target):
 	global_position = start
 	velocity = start.direction_to(target) * speed
 	rangeTimer.start()
+	rotation = velocity.angle()
 	
 	
 func move():

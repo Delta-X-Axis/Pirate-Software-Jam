@@ -11,6 +11,7 @@ func _ready():
 	rangeTimer.callback.connect(kill)
 	add_child(rangeTimer)
 	rangeTimer.start()
+	get_node("AnimatedSprite2D").play()
 
 
 func kill():
