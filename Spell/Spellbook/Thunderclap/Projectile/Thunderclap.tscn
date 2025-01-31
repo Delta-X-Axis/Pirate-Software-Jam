@@ -5,10 +5,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmgqg"]
 
-[node name="ClapBox" type="CharacterBody2D" groups=["Thunderclap"]]
+[node name="ClapBox" type="Area2D" groups=["Thunderclap"]]
 modulate = Color(99.3255, 0.317647, 0.690196, 1)
 self_modulate = Color(1, 0, 1, 1)
 scale = Vector2(2, 2)
+collision_mask = 2
 script = ExtResource("1_fr5fq")
 
 [node name="ClapCollision" type="CollisionShape2D" parent="."]
