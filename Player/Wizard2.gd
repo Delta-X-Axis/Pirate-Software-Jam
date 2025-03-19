@@ -52,7 +52,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed(&"Click"):
-		movement_target_position = get_local_mouse_position();
+		movement_target_position = get_global_mouse_position();
 		print("Target Position: ", movement_target_position);
 		set_movement_target(movement_target_position)
 
@@ -75,6 +75,7 @@ func _physics_process(delta):
 	if navigation_agent.is_navigation_finished(): # This is causing the guy to quit moving immediately
 		return
 
+	current_agent_position = global_position
 	next_path_position = navigation_agent.get_next_path_position()
-	velocity = position.direction_to(next_path_position) * movement_speed
+	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	move_and_slide()
