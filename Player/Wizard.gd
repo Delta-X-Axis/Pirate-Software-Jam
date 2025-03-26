@@ -121,10 +121,10 @@ func setAttracted(pos):
 
 
 func interact():
-	if state == 3 || treasure == null:
+	if state == 3 || treasure == null: # If frightened, or there's no treasure, leave
 		return
 		
-	sprite.stop()
+	sprite.stop() # Stop the sprite
 	state = treasure._interact()
 	velocity = Vector2.ZERO
 	var interactTime = 2.0
@@ -160,17 +160,18 @@ func inputs():
 
 
 func move():
-	if state == 0 ||state == 4:
+	if state == 0 ||state == 4: # If Idle or Interacting
 		return
 	
-	velocity = position.direction_to(target) * movement
-	if state == 3:
+	velocity = position.direction_to(target) * movement # Set his velocity
+	if state == 3: # If frightened, run faster
 		velocity *= 1.5
 	detectArea.rotation = velocity.angle()
 	
 	
-	var dir = velocity.angle()
+	var dir = velocity.angle() # Determine angle of movement
 	
+	# Determine which sprite to display
 	if dir < PI/4 && dir >-PI/4:
 		sprite.play("Right")
 	if dir < PI/4 * 3 && dir >PI/4:
@@ -180,17 +181,17 @@ func move():
 	if dir < -PI/4 && dir >-PI/4*3:
 		sprite.play("Up")
 	
-	move_and_slide()
+	move_and_slide() # Move
 	
-	if (position.distance_to(target) <= 20):
+	if (position.distance_to(target) <= 20): # If close...
 		match state:
-			1:
-				setIdle()
-			2:
-				if treasure != null:
+			1: # Idle
+				setIdle() # Wander
+			2: # Attracted
+				if treasure != null: # If you aren't looting, loot
 					interact()
-			3:
-				setIdle()
+			3: # Frightened
+				setIdle() # Wander (you've run far enough)
 
 func hit(dmg, pos):
 	health -= dmg

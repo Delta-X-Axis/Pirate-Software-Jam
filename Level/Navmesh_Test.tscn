@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://n5m88uxr5lll"]
+[gd_scene load_steps=8 format=3 uid="uid://n5m88uxr5lll"]
 
 [ext_resource type="TileSet" uid="uid://ba6o0fkaa7mlb" path="res://Assets/Level/Level.tres" id="1_776bd"]
 [ext_resource type="Script" path="res://Level/Navmesh_Test.gd" id="1_pohs7"]
 [ext_resource type="PackedScene" uid="uid://nikugv76k2js" path="res://Player/Wizard.tscn" id="2_uhpiu"]
 [ext_resource type="Script" path="res://Player/Wizard2.gd" id="4_urox0"]
+[ext_resource type="Script" path="res://Level/Spawn.gd" id="5_yp41a"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_t514i"]
 vertices = PackedVector2Array(234, -22, 234, -86, 406, -86, 406, 86, 342, 86, 342, 266, 406, 266, 406, 310, 234, 310, 234, 266, 298, 266, 298, 86, 234, 22, 234, 86, 182, -22, 182, 22, 182, 182, -182, 182, -182, -182, 182, -182)
@@ -11,8 +12,8 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(192, 192, -192, 192, -192, -192, 192, -192), PackedVector2Array(192, -32, 224, -32, 224, 32, 192, 32), PackedVector2Array(224, -96, 416, -96, 416, 96, 224, 96), PackedVector2Array(288, 96, 352, 96, 352, 256, 288, 256), PackedVector2Array(224, 256, 416, 256, 416, 320, 224, 320)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uj8g"]
-size = Vector2(189, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jueuq"]
+size = Vector2(384, 384)
 
 [node name="Navmesh Test" type="Node2D"]
 script = ExtResource("1_pohs7")
@@ -42,11 +43,18 @@ debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_t514i")
 
-[node name="Finish" type="Area2D" parent="."]
-visible = false
+[node name="Spawn" type="Area2D" parent="." groups=["Room"]]
+collision_layer = 0
+collision_mask = 255
+script = ExtResource("5_yp41a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
-position = Vector2(320, 288)
-shape = SubResource("RectangleShape2D_4uj8g")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn"]
+shape = SubResource("RectangleShape2D_jueuq")
+
+[connection signal="area_entered" from="Spawn" to="Wizard" method="_on_spawn_area_entered"]
+[connection signal="body_entered" from="Spawn" to="Wizard" method="_on_spawn_body_entered"]
+[connection signal="body_entered" from="Spawn" to="Spawn" method="_on_body_entered"]
+[connection signal="room_entered" from="Spawn" to="Wizard" method="_on_spawn_room_entered"]
