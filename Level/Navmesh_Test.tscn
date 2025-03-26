@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Level/Navmesh_Test.gd" id="1_pohs7"]
 [ext_resource type="PackedScene" uid="uid://nikugv76k2js" path="res://Player/Wizard.tscn" id="2_uhpiu"]
 [ext_resource type="Script" path="res://Player/Wizard2.gd" id="4_urox0"]
-[ext_resource type="Script" path="res://Level/Spawn.gd" id="5_yp41a"]
+[ext_resource type="Script" path="res://World/Spawn.gd" id="5_yp41a"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_t514i"]
 vertices = PackedVector2Array(234, -22, 234, -86, 406, -86, 406, 86, 342, 86, 342, 266, 406, 266, 406, 310, 234, 310, 234, 266, 298, 266, 298, 86, 234, 22, 234, 86, 182, -22, 182, 22, 182, 182, -182, 182, -182, -182, 182, -182)
@@ -54,7 +54,5 @@ script = ExtResource("5_yp41a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn"]
 shape = SubResource("RectangleShape2D_jueuq")
 
-[connection signal="area_entered" from="Spawn" to="Wizard" method="_on_spawn_area_entered"]
-[connection signal="body_entered" from="Spawn" to="Wizard" method="_on_spawn_body_entered"]
 [connection signal="body_entered" from="Spawn" to="Spawn" method="_on_body_entered"]
 [connection signal="room_entered" from="Spawn" to="Wizard" method="_on_spawn_room_entered"]

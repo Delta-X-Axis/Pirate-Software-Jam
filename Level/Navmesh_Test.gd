@@ -8,6 +8,7 @@ extends Node2D
 #	- Loot: If no enemies, loot all chests in room (5s each)
 #	- Doot: If no chests, "complete" room (5s)
 #		- This can be solving a puzzle, reading runes, etc., but for now will be a loading bar
+#	- Wander:
 #	- Continue: If room complete, go to next room
 #		- Will choose between all non-completed paths, favoring main path at 2:1.
 #			- Player can pick which way (somehow)
