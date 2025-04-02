@@ -4,9 +4,9 @@ class_name Room
 
 var room_ID : int #Identifier for the room
 var doors : Array #Vector2 locations of all the doors in the room.
-var poi : Array #Points of interest in the room
+var poiArray : Array #Points of interest in the room
 var explored = false #Completion state of the room
-var adjacent : Array #Adjacent rooms
+
 
 
 func _ready():
@@ -26,16 +26,11 @@ func ExploreRoom(pois):
 		currpoi.GetPriority()
 		
 
-func GetAdjacent():
-	var doorindex = 0
-	var currdoor
-	while doorindex <= doors.length:
-		currdoor = 
 
 #Code that runs when wizard enters the room.
 func RoomSetup():
-	if explored = false:
-		ExploreRoom() 
+	if !explored:
+		ExploreRoom(poiArray)
 
 #Signal wizard entry here, uncomment.
 	#RoomSetup()
