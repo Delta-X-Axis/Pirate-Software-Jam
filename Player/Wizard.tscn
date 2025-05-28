@@ -214,6 +214,7 @@ scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_67i56")
 
 [node name="PlayerUi" parent="." node_paths=PackedStringArray("playerRef") instance=ExtResource("4_vht3a")]
+visible = false
 playerRef = NodePath("..")
 
 [connection signal="selectSpell" from="." to="PlayerUi" method="_on_wizard_select_spell"]
