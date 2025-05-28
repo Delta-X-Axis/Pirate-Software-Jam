@@ -26,6 +26,8 @@ var current_spell = 0
 
 var sprite
 
+var exploredRooms : Array #stores explored room_IDs
+
 
 signal addItem
 signal selectSpell
