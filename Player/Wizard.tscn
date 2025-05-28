@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Player/Wizard.gd" id="1_gopn0"]
 [ext_resource type="Texture2D" uid="uid://cpovai88053au" path="res://Player/Wizard-SpriteSheet-Sheet.png" id="2_6f6y1"]
-[ext_resource type="Texture2D" uid="uid://d23176wnkn780" path="res://Assets/Level/Top Down - Basic/TX Plant.png" id="3_q10qk"]
+[ext_resource type="Texture2D" uid="uid://d23176wnkn780" path="res://_LegacyAssets/Level01 Test/Top Down - Basic/TX Plant.png" id="3_3hgvo"]
 [ext_resource type="PackedScene" uid="uid://cr5udstpju8k5" path="res://UI/Scenes/PlayerUI.tscn" id="4_vht3a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cxmx"]
@@ -181,7 +181,7 @@ height = 18.0
 points = PackedVector2Array(100, 90, 0, 20, -15, 15, -20, 0, -15, -15, 0, -20, 100, -90, 120, -50, 130, 0, 120, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_67i56"]
-atlas = ExtResource("3_q10qk")
+atlas = ExtResource("3_3hgvo")
 region = Rect2(32, 192, 32, 32)
 
 [node name="Wizard" type="CharacterBody2D" groups=["Wizard"]]
@@ -206,7 +206,6 @@ position = Vector2(7, 0)
 shape = SubResource("ConvexPolygonShape2D_1dmjb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-visible = false
 modulate = Color(2.5, 2, 2.2, 0.114)
 z_index = 10
 position = Vector2(55, -3)

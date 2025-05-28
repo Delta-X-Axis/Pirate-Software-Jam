@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dogn160klx2mi"
-path="res://.godot/imported/TX Shadow.png-5dda19933b8e25ec1343cbeda21ea0ed.ctex"
+uid="uid://drxydlhsy6hoj"
+path="res://.godot/imported/TEST_TILE-Sheet.png-47f474bc51b20deac01bf2e6d2ea7f65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Level/Top Down - Basic/TX Shadow.png"
-dest_files=["res://.godot/imported/TX Shadow.png-5dda19933b8e25ec1343cbeda21ea0ed.ctex"]
+source_file="res://Levels/LevelOutline/TEST_TILE-Sheet.png"
+dest_files=["res://.godot/imported/TEST_TILE-Sheet.png-47f474bc51b20deac01bf2e6d2ea7f65.ctex"]
 
 [params]
 

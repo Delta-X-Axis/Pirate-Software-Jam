@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br08kbtxny0xm"
-path="res://.godot/imported/TX Struct.png-0e5a73d6e7d9a4e752147174824d792f.ctex"
+uid="uid://c6gkmgs7piua"
+path="res://.godot/imported/Kobold Sprites.png-4f4c33a3f8d802f6f15c208a39e8731a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Level/Top Down - Basic/TX Struct.png"
-dest_files=["res://.godot/imported/TX Struct.png-0e5a73d6e7d9a4e752147174824d792f.ctex"]
+source_file="res://Enemies/Kobold/Kobold Sprites.png"
+dest_files=["res://.godot/imported/Kobold Sprites.png-4f4c33a3f8d802f6f15c208a39e8731a.ctex"]
 
 [params]
 

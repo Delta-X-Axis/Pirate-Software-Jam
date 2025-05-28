@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vp8t3isp6cq8"
-path="res://.godot/imported/Tilemap.png-936e6edb607d29f161f93faed6e559fb.ctex"
+uid="uid://csvjllv121tml"
+path="res://.godot/imported/_down idle.png-4ef29000078a4a7c4308f0ba391a5637.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Tilemap.png"
-dest_files=["res://.godot/imported/Tilemap.png-936e6edb607d29f161f93faed6e559fb.ctex"]
+source_file="res://_LegacyAssets/Wizard01 Test/_down idle.png"
+dest_files=["res://.godot/imported/_down idle.png-4ef29000078a4a7c4308f0ba391a5637.ctex"]
 
 [params]
 

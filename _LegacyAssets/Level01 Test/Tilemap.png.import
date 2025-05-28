@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0ukqw77iy2wg"
-path="res://.godot/imported/Kobold_Sprites-Sheet.png-2f385a7567d2163a81be11336b26e5ac.ctex"
+uid="uid://vp8t3isp6cq8"
+path="res://.godot/imported/Tilemap.png-e8fc40afc76e73dd258a3b8f53d48edb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Kobold_Sprites-Sheet.png"
-dest_files=["res://.godot/imported/Kobold_Sprites-Sheet.png-2f385a7567d2163a81be11336b26e5ac.ctex"]
+source_file="res://_LegacyAssets/Level01 Test/Tilemap.png"
+dest_files=["res://.godot/imported/Tilemap.png-e8fc40afc76e73dd258a3b8f53d48edb.ctex"]
 
 [params]
 

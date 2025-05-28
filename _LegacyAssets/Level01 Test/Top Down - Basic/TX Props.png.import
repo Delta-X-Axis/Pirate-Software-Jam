@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsuxbrv4ypuvy"
-path="res://.godot/imported/TX Tileset Wall.png-92fbe20dccd389745fe191c57887e3df.ctex"
+uid="uid://143iqj523tgp"
+path="res://.godot/imported/TX Props.png-f50474fa5c7318797532af955542e879.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Level/Top Down - Basic/TX Tileset Wall.png"
-dest_files=["res://.godot/imported/TX Tileset Wall.png-92fbe20dccd389745fe191c57887e3df.ctex"]
+source_file="res://_LegacyAssets/Level01 Test/Top Down - Basic/TX Props.png"
+dest_files=["res://.godot/imported/TX Props.png-f50474fa5c7318797532af955542e879.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csvjllv121tml"
-path="res://.godot/imported/_down idle.png-bc6923cc52d9a2a373f5ee92bd92b22b.ctex"
+uid="uid://br08kbtxny0xm"
+path="res://.godot/imported/TX Struct.png-5c430835260ff7e99334bb526e563042.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/_down idle.png"
-dest_files=["res://.godot/imported/_down idle.png-bc6923cc52d9a2a373f5ee92bd92b22b.ctex"]
+source_file="res://_LegacyAssets/Level01 Test/Top Down - Basic/TX Struct.png"
+dest_files=["res://.godot/imported/TX Struct.png-5c430835260ff7e99334bb526e563042.ctex"]
 
 [params]
 

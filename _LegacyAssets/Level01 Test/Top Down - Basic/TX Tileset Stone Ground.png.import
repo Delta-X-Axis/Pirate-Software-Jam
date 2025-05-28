@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://paksf04pj04e"
-path="res://.godot/imported/TX Player.png-5724bf598c0d7ae6f8bbbbc8d2850d96.ctex"
+uid="uid://8my2unh0ijr4"
+path="res://.godot/imported/TX Tileset Stone Ground.png-7c743ad75c69a659dfbff41bc5094aa7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Level/Top Down - Basic/TX Player.png"
-dest_files=["res://.godot/imported/TX Player.png-5724bf598c0d7ae6f8bbbbc8d2850d96.ctex"]
+source_file="res://_LegacyAssets/Level01 Test/Top Down - Basic/TX Tileset Stone Ground.png"
+dest_files=["res://.godot/imported/TX Tileset Stone Ground.png-7c743ad75c69a659dfbff41bc5094aa7.ctex"]
 
 [params]
 

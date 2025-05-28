@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://ba6o0fkaa7mlb"]
 
-[ext_resource type="Texture2D" uid="uid://m75qy47xaebr" path="res://Assets/Level/Top Down - Basic/TX Tileset Grass.png" id="1_dvmwi"]
-[ext_resource type="Texture2D" uid="uid://8my2unh0ijr4" path="res://Assets/Level/Top Down - Basic/TX Tileset Stone Ground.png" id="2_jvi5v"]
+[ext_resource type="Texture2D" uid="uid://m75qy47xaebr" path="res://_LegacyAssets/Level01 Test/Top Down - Basic/TX Tileset Grass.png" id="1_dvmwi"]
+[ext_resource type="Texture2D" uid="uid://8my2unh0ijr4" path="res://_LegacyAssets/Level01 Test/Top Down - Basic/TX Tileset Stone Ground.png" id="2_jvi5v"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ayktp"]
 

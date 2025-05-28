@@ -30,5 +30,6 @@ offset_right = 1.0
 offset_bottom = 23.0
 
 [node name="Name5" type="Label" parent="."]
-offset_right = 1.0
+offset_left = -3.0
+offset_right = -2.0
 offset_bottom = 23.0

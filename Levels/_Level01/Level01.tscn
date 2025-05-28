@@ -3,12 +3,21 @@
 [ext_resource type="Script" path="res://System/game.gd" id="1_mvyjk"]
 [ext_resource type="Texture2D" uid="uid://vp8t3isp6cq8" path="res://Level/Tilemap.png" id="2_622fy"]
 [ext_resource type="PackedScene" uid="uid://c16xgiutotpbt" path="res://UI/Scenes/end.tscn" id="2_hk4k0"]
+[ext_resource type="Texture2D" uid="uid://drxydlhsy6hoj" path="res://Levels/LevelOutline/TEST_TILE-Sheet.png" id="3_buy4s"]
 [ext_resource type="PackedScene" uid="uid://nikugv76k2js" path="res://Player/Wizard.tscn" id="3_irf3x"]
+<<<<<<< Updated upstream:Level/Tilemap_Test.tscn
 [ext_resource type="PackedScene" uid="uid://b3nrshmnqk4vq" path="res://Enemies/Enemy.tscn" id="4_qwate"]
 [ext_resource type="PackedScene" uid="uid://bxasob4cd07o6" path="res://Objects/Treasure.tscn" id="5_rwm0l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8etg"]
 texture = ExtResource("2_622fy")
+=======
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cm7tr"]
+texture = ExtResource("3_buy4s")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+>>>>>>> Stashed changes:Levels/_Level01/Level01.tscn
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
