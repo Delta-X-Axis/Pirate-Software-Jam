@@ -196,8 +196,11 @@ animation = &"Up"
 shape = SubResource("CapsuleShape2D_1spvc")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 6
+modulate = Color(0, 0, 1, 1)
+show_behind_parent = true
+top_level = true
+collision_layer = 255
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 1

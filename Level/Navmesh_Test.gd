@@ -22,6 +22,11 @@ extends Node2D
 #		- Patroling: Walking around room
 #		- Conversing: Standing facing another enemy
 
+# Naviagtion Bus
+# Rooms emit signal 'Nav.nav_bus.emit(room)'
+# Navigation bus contains the signal 'signal nav_bus'
+# Wizard then receives the signal via 'Nav.nav_bus.connect(setRoom())'
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

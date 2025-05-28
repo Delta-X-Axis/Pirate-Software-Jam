@@ -9,6 +9,12 @@ var area2d: Area2D = null;
 
 signal room_entered(room)
 
+func _input(event):
+	if event.is_action_pressed(&"Click"):
+		print("Room:", self.has_overlapping_bodies());
+		if(self.has_overlapping_bodies()):
+			print("Room:", self.get_overlapping_bodies())
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if(self.get_child_count() < 1):
@@ -25,7 +31,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_body_entered(body):
+	GameBus.current_room.emit(self);
 	#print("$Body Entered: ", body,"$");
 	if body.is_in_group("Wizard"):
-		emit_signal("room_entered", self)
+		#emit_signal("room_entered", self)
+		pass;
 	pass;

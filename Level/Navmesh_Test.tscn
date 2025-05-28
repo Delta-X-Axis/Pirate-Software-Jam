@@ -47,7 +47,7 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_t514i")
 
 [node name="Spawn" type="Area2D" parent="." groups=["Room"]]
-collision_layer = 0
+collision_layer = 255
 collision_mask = 255
 script = ExtResource("5_yp41a")
 

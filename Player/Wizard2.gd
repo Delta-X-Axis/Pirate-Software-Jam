@@ -50,6 +50,8 @@ var nextRoom: Node2D = null;
 func _ready():
 	detectArea = get_node("Area2D")
 	
+	GameBus.current_room.connect(set_current_room);
+	
 	navigation_agent.path_desired_distance = 2.0
 	navigation_agent.target_desired_distance = 2.0
 	
@@ -104,8 +106,9 @@ func setWander():
 		
 	state = 1
 	
-	var topLeft: Vector2 = currentRoom.get_child(0).shape.get_rect().position;
-	var bottomRight: Vector2 = currentRoom.get_child(0).shape.get_rect().end;
+	# .get_node instead of get_child
+	var topLeft: Vector2 = currentRoom.get_node("CollisionShape2D").shape.get_rect().position;
+	var bottomRight: Vector2 = currentRoom.get_node("CollisionShape2D").shape.get_rect().end;
 	
 	var randomPoint: Vector2 = Vector2(randf_range(topLeft[1], bottomRight[1]), randf_range(bottomRight[0], topLeft[0]));
 	
@@ -129,6 +132,9 @@ func _input(event):
 		##print("Target Position: ", movement_target_position);
 		set_movement_target(movement_target_position)
 		state = 1;
+		print("Wizard:", self.get_node("Area2D").has_overlapping_bodies());
+		if(self.get_node("Area2D").has_overlapping_bodies()):
+			print("Wizard:", self.get_node("Area2D").get_overlapping_bodies())
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
@@ -210,6 +216,13 @@ func move():
 func _physics_process(_delta):
 	#inputs();
 	move();
+
+# Daran suggests whenever the player enters the collision shape, to have the room send a signal to a bus that tells the player which room their in
+
+func set_current_room(room: Node2D):
+	print("RECEIVED!");
+	currentRoom = room;
+	return;
 
 func _on_spawn_room_entered(room):
 	print("Room Entered: ", room.name);
