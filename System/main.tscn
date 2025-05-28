@@ -1,18 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://bi6kh0ckn86qo"]
 
 [ext_resource type="Script" path="res://System/main.gd" id="1_72bug"]
-<<<<<<< Updated upstream
+
 [ext_resource type="PackedScene" path="res://UI/Scenes/title.tscn" id="2_gir7t"]
 [ext_resource type="PackedScene" path="res://UI/Scenes/Credits.tscn" id="3_hdlqr"]
 [ext_resource type="PackedScene" uid="uid://bvetit3s1ebdh" path="res://Level/Tilemap_Test.tscn" id="4_gwmqc"]
-=======
+
 [ext_resource type="PackedScene" uid="uid://c4qq850raq52l" path="res://UI/Scenes/title.tscn" id="2_gir7t"]
 [ext_resource type="PackedScene" uid="uid://bsjxe558s3prf" path="res://UI/Scenes/Credits.tscn" id="3_hdlqr"]
 [ext_resource type="PackedScene" uid="uid://bvetit3s1ebdh" path="res://Levels/_Level01/Level01.tscn" id="4_gwmqc"]
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 [ext_resource type="Script" path="res://System/Busses/GameBus.gd" id="5_mjc78"]
 
 [node name="Main" type="Node2D"]
