@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drxydlhsy6hoj"
-path="res://.godot/imported/TEST_TILE-Sheet.png-47f474bc51b20deac01bf2e6d2ea7f65.ctex"
+path="res://.godot/imported/TEST_TILE-Sheet.png-6197846f7d2cd35bead4f97d746c4f78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/LevelOutline/TEST_TILE-Sheet.png"
-dest_files=["res://.godot/imported/TEST_TILE-Sheet.png-47f474bc51b20deac01bf2e6d2ea7f65.ctex"]
+source_file="res://Levels/_DefaultLevelTest/TEST_TILE-Sheet.png"
+dest_files=["res://.godot/imported/TEST_TILE-Sheet.png-6197846f7d2cd35bead4f97d746c4f78.ctex"]
 
 [params]
 
