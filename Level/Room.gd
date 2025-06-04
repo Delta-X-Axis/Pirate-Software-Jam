@@ -5,9 +5,7 @@ class_name Room
 var room_ID : int #Identifier for the room
 var doors : Array #Vector2 locations of all the doors in the room.
 var poiArray : Array #Points of interest in the room
-var explored = false #Completion state of the room
-
-
+var explored : bool = false #Completion state of the room
 
 func _ready():
 	pass 

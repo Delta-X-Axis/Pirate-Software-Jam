@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://big01disvvvbm"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/room.gd" id="1_om545"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_almvr"]
+size = Vector2(64, 64)
+
+[node name="Room" type="Area2D" groups=["Room"]]
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("1_om545")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+top_level = true
+shape = SubResource("RectangleShape2D_almvr")
+debug_color = Color(0.674718, 0.506739, 0, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

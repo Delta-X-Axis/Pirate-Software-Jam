@@ -26,6 +26,11 @@ extends Node2D
 # Rooms emit signal 'Nav.nav_bus.emit(room)'
 # Navigation bus contains the signal 'signal nav_bus'
 # Wizard then receives the signal via 'Nav.nav_bus.connect(setRoom())'
+# ... that appears to have worked
+
+# Now I need to get rooms to know there neighbors... to do this, when first entered rooms are going to emit "feelers"
+# Basically, small 1x1 unit objects that just see if the tile next to the room is a wall or not
+# If not, report back
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

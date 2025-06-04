@@ -106,6 +106,10 @@ func setWander():
 		
 	state = 1
 	
+	#print("Area: " , currentRoom.get_node("CollisionShape2D").shape.get_rect().position[0], ", ", currentRoom.get_node("CollisionShape2D").shape.get_rect().end[1]);
+	print("(WANDER) Current Room: ", currentRoom.name)
+	# Point is relative?
+	
 	# .get_node instead of get_child
 	var topLeft: Vector2 = currentRoom.get_node("CollisionShape2D").shape.get_rect().position;
 	var bottomRight: Vector2 = currentRoom.get_node("CollisionShape2D").shape.get_rect().end;
@@ -116,6 +120,7 @@ func setWander():
 		print("REROLL!")
 		randomPoint = Vector2(randf_range(topLeft[1], bottomRight[1]), randf_range(bottomRight[0], topLeft[0]));
 	
+	#currentRoom.position + 
 	movement_target_position = randomPoint;
 	set_movement_target(movement_target_position);
 	
@@ -132,9 +137,9 @@ func _input(event):
 		##print("Target Position: ", movement_target_position);
 		set_movement_target(movement_target_position)
 		state = 1;
-		print("Wizard:", self.get_node("Area2D").has_overlapping_bodies());
-		if(self.get_node("Area2D").has_overlapping_bodies()):
-			print("Wizard:", self.get_node("Area2D").get_overlapping_bodies())
+		#print("Wizard:", self.get_node("Area2D").has_overlapping_bodies());
+		#if(self.get_node("Area2D").has_overlapping_bodies()):
+		#	print("Wizard:", self.get_node("Area2D").get_overlapping_bodies())
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
@@ -145,7 +150,6 @@ func actor_setup():
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
-
 
 func inputs():
 	if Input.is_action_just_pressed("Click"):
@@ -220,11 +224,13 @@ func _physics_process(_delta):
 # Daran suggests whenever the player enters the collision shape, to have the room send a signal to a bus that tells the player which room their in
 
 func set_current_room(room: Node2D):
-	print("RECEIVED!");
+	if(currentRoom != null):
+		currentRoom.hide();
+	
 	currentRoom = room;
+	print("Current Room: ", currentRoom.name, "\nDimensions: ", currentRoom.dimensions)
+	print("Shape: ", currentRoom.collisionShape2D.shape.size)
+	print("")
+	currentRoom.show();
+	currentRoom.queue_redraw();
 	return;
-
-func _on_spawn_room_entered(room):
-	print("Room Entered: ", room.name);
-	currentRoom = room;
-	pass # Replace with function body.
